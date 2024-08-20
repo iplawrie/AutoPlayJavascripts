@@ -1,0 +1,20 @@
+Game{
+    cookies => current cookie count
+    
+    ClickCookie()
+    ObjectsById => array of buildings {
+        amount => total purchased of building
+        price => current price of building
+
+        buy()
+    }
+    UpgradesInStore{
+        baseprice
+        
+        canBuy() => return if you can buy upgrade
+        buy()
+
+    }
+    Ascend(1)
+}
+    
