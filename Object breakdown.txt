@@ -1,5 +1,7 @@
 Game{
     cookies => current cookie count
+    ascendMeterLevel => current numer of prestige levels to gain on meter
+    heavenlyChips => current number of heavenly chips
     
     ClickCookie()
     ObjectsById => array of buildings {
@@ -7,14 +9,25 @@ Game{
         price => current price of building
 
         buy()
-    }
+    },
     UpgradesInStore{
-        baseprice
+        basePrice
         
         canBuy() => return if you can buy upgrade
         buy()
 
+    },
+    Ascend(true),
+    Reincarnate(true),
+    UpgradesByPool["kitten", "prestige", "tech"] => array of upgrades based on name{
+        bought
+        basePrice
+        canBePurchased
     }
-    Ascend(1)
+    PrestigeUpgrades{
+        bought
+        basePrice
+        canBePurchased
+    }
+
 }
-    

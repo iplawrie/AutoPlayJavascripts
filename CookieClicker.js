@@ -1,6 +1,12 @@
 //global variables
 var cookieClickerInterval;
 var buildingPurchaseInterval;
+var checkPrestigeInterval;
+var havePrestiged = false;
+
+function buyPrestigeUpgrade(){
+
+}
 
 function automateCookieClicker(){
 	//clicks big cookie 5ms
@@ -22,12 +28,21 @@ function automateCookieClicker(){
 			affordableBuildings[0].buy();
 		}
 	}, 1000);
+
+	//check for prestige & buy available prestige upgrades
+	var checkPrestigeInterval = setInterval(function(){
+		if(!Game.prestige && Game.ascendMeterLevel >= 5){
+			Game.Ascend(1)
+			buyPrestigeUpgrade()
+		}
+	}, 1000*60*60);
 	
 }
 function stopAll(){
 	clearInterval(cookieClickerInterval);
 	clearInterval(buildingPurchaseInterval);
-	console.log("Stopping click");
+	clearInterval(checkPrestigeInterval);
+	console.log("Stopping Automatic Gameplay");
 }
 
 automateCookieClicker()
