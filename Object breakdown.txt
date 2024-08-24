@@ -29,9 +29,7 @@ Game{
     PrestigeUpgrades{
         bought
         basePrice
-        canBePurchased
-
-        canBuy()
+        canBePurchased => sees if available
     }
 
 }
