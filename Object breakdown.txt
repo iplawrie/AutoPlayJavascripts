@@ -23,11 +23,15 @@ Game{
         bought
         basePrice
         canBePurchased
+
+        canBuy()
     }
     PrestigeUpgrades{
         bought
         basePrice
         canBePurchased
+
+        canBuy()
     }
 
 }

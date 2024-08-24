@@ -17,18 +17,22 @@ function automateCookieClicker(){
 		//buy upgrades
 		if(Game.UpgradesInStore.length > 0){
 			var upgrade =  Game.UpgradesInStore[0];
-			if(upgrade.canBuy){
+			if(upgrade.canBuy()){
 				upgrade.buy();
+				console.log("Bought " + upgrade.name + " upgrade at " + upgrade.getPrice());
 			}
 		}
 		//buy buildings
 		var buildings = Game.ObjectsById;
 		var affordableBuildings = buildings.filter(building => building.price <= Game.cookies);
 		if (affordableBuildings.length > 0){
-			affordableBuildings[0].buy();
+			var buybuilding = affordableBuildings[affordableBuildings.length-1]
+			var buybuildingprice = buybuilding.price
+			buybuilding.buy();
+			console.log("Bought " + buybuilding.name + " building at " + buybuildingprice);
 		}
 	}, 1000);
-
+/*
 	//check for prestige & buy available prestige upgrades
 	var checkPrestigeInterval = setInterval(function(){
 		if(!Game.prestige && Game.ascendMeterLevel >= 5){
@@ -36,6 +40,7 @@ function automateCookieClicker(){
 			buyPrestigeUpgrade()
 		}
 	}, 1000*60*60);
+*/
 	
 }
 function stopAll(){
